@@ -1,10 +1,10 @@
-import { PublicHeader } from '@/components/layout/Header'
+import { Navbar } from '@/components/layout/Navbar'
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <PublicHeader />
-      {children}
+      <Navbar />
+      <main>{children}</main>
     </>
   )
 }

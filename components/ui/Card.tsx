@@ -1,40 +1,45 @@
 'use client'
 
 import { type HTMLAttributes, forwardRef } from 'react'
-import { motion, type Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils/cn'
 
-/* ── Trois niveaux d'élévation ─────────────────────────────────────────
-   flat    → surface + border, pas de shadow
-   raised  → +shadow-sm, shadow-md au hover
-   float   → +shadow-md, shadow-lg au hover, translateY
-   ──────────────────────────────────────────────────────────────────── */
+type Variant = 'default' | 'raised' | 'premium' | 'feature'
 
-type Elevation = 'flat' | 'raised' | 'float'
+type LegacyElevation = 'flat' | 'raised' | 'float'
+const elevationToVariant: Record<LegacyElevation, Variant> = {
+  flat:   'default',
+  raised: 'raised',
+  float:  'raised',
+}
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  elevation?: Elevation
+  variant?: Variant
+  /** @deprecated use variant instead */
+  elevation?: LegacyElevation
   hoverable?: boolean
   padded?: boolean
-  asLink?: boolean
 }
 
-const elevationBase: Record<Elevation, string> = {
-  flat:   'bg-surface border border-border',
-  raised: 'bg-surface border border-border shadow-[var(--shadow-sm)]',
-  float:  'bg-surface-2 border border-border-strong shadow-[var(--shadow-md)]',
+const variantBase: Record<Variant, string> = {
+  default: 'bg-surface border border-border',
+  raised:  'bg-surface-2 border border-border shadow-[var(--shadow-sm)]',
+  premium: 'glass-card border border-[rgba(240,234,224,0.10)] shadow-[var(--shadow-md)]',
+  feature: 'bg-forest border border-forest-light/15',
 }
 
-const elevationHover: Record<Elevation, Variants['hover']> = {
-  flat:   { y: -1, boxShadow: '0 2px 10px oklch(5% 0.04 145 / 50%)' },
-  raised: { y: -2, boxShadow: '0 6px 24px oklch(5% 0.04 145 / 65%)' },
-  float:  { y: -3, boxShadow: '0 12px 40px oklch(5% 0.04 145 / 75%)' },
+const variantHover: Record<Variant, { y: number; boxShadow: string }> = {
+  default: { y: -1, boxShadow: '0 4px 16px rgba(8,8,6,0.65)' },
+  raised:  { y: -2, boxShadow: '0 8px 28px rgba(8,8,6,0.72)' },
+  premium: { y: -3, boxShadow: '0 12px 40px rgba(8,8,6,0.78), 0 4px 32px rgba(200,169,106,0.12)' },
+  feature: { y: -2, boxShadow: '0 8px 28px rgba(8,8,6,0.72)' },
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
   (
     {
-      elevation = 'flat',
+      variant: variantProp = 'default',
+      elevation,
       hoverable = false,
       padded = true,
       className,
@@ -43,6 +48,15 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     },
     ref
   ) => {
+    const variant: Variant = elevation ? elevationToVariant[elevation] : variantProp
+
+    const base = cn(
+      'rounded-[var(--radius-lg)] transition-colors duration-200',
+      variantBase[variant],
+      padded && 'p-4',
+      className
+    )
+
     if (hoverable) {
       return (
         <motion.div
@@ -52,16 +66,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
           whileTap={{ scale: 0.99 }}
           variants={{
             rest:  { y: 0 },
-            hover: elevationHover[elevation],
+            hover: variantHover[variant],
           }}
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-          className={cn(
-            'rounded-[var(--radius-lg)] transition-colors duration-200',
-            elevationBase[elevation],
-            padded && 'p-4',
-            'cursor-pointer',
-            className
-          )}
+          className={cn(base, 'cursor-pointer')}
           {...(props as React.ComponentProps<typeof motion.div>)}
         >
           {children}
@@ -70,16 +78,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
     }
 
     return (
-      <div
-        ref={ref}
-        className={cn(
-          'rounded-[var(--radius-lg)]',
-          elevationBase[elevation],
-          padded && 'p-4',
-          className
-        )}
-        {...props}
-      >
+      <div ref={ref} className={base} {...props}>
         {children}
       </div>
     )
@@ -100,7 +99,7 @@ export function CardTitle({ className, children, ...props }: HTMLAttributes<HTML
   return (
     <h3
       className={cn(
-        'font-display font-semibold text-text text-lg leading-snug tracking-tight',
+        'font-display font-medium text-text text-lg leading-snug tracking-tight',
         className
       )}
       {...props}

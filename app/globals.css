@@ -1,89 +1,88 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════════════
-   VOU GA — Design System "Canopée Équatoriale"
-   Inspiré de la forêt gabonaise, de l'or des minerais, de la nuit africaine
+   VOU GA — Design System "Équateur Nuit"
+   Noirs chauds · Or champagne · Forêt pétrole · Bleu Atlantique
    ═══════════════════════════════════════════════════════════════════════ */
 
 @theme inline {
 
-  /* ── Palette ───────────────────────────────────────────────────────── */
+  /* ── Fonds — noirs chauds ─────────────────────────────────────────── */
+  --color-background:    #080806;
+  --color-surface:       #0E0C0A;
+  --color-surface-2:     #151210;
+  --color-surface-3:     #1D1A16;
+  --color-surface-4:     #26221D;
 
-  /* Fonds — noir-vert nuit profonde */
-  --color-background:    #050A05;
-  --color-surface:       #0C130C;
-  --color-surface-2:     #121C12;
-  --color-surface-3:     #192619;
-  --color-surface-4:     #1F2F1F;
+  /* ── Or champagne ─────────────────────────────────────────────────── */
+  --color-accent:        #C8A96A;
+  --color-accent-hover:  #DEC08A;
+  --color-accent-muted:  rgba(200, 169, 106, 0.14);
+  --color-accent-fg:     #080806;
 
-  /* Or gabonais — désaturé, chaud, premium */
-  --color-accent:        #C49428;
-  --color-accent-hover:  #A87E22;
-  --color-accent-muted:  #C4942820;
-  --color-accent-fg:     #050A05;
+  /* ── Vert forêt pétrole ───────────────────────────────────────────── */
+  --color-forest:        #1C3D2E;
+  --color-forest-light:  #3A7A62;
 
-  /* Vert forêt — nature équatoriale */
-  --color-forest:        #2D6A4F;
-  --color-forest-light:  #3D8A64;
+  /* ── Bleu Atlantique ──────────────────────────────────────────────── */
+  --color-atlantic:      #16283F;
+  --color-atlantic-mid:  #1E3A58;
 
-  /* Textes */
-  --color-text:          #EDE8DF;
-  --color-muted:         #8A9280;
-  --color-subtle:        #52604E;
+  /* ── Textes ───────────────────────────────────────────────────────── */
+  --color-text:          #F0EAE0;
+  --color-muted:         #978D80;
+  --color-subtle:        #635C52;
 
-  /* Borders — tintées vert très subtil */
-  --color-border:        oklch(55% 0.04 145 / 8%);
-  --color-border-strong: oklch(55% 0.04 145 / 18%);
+  /* ── Borders — ivoire chaud ───────────────────────────────────────── */
+  --color-border:        rgba(240, 234, 224, 0.08);
+  --color-border-strong: rgba(240, 234, 224, 0.18);
 
-  /* États */
-  --color-destructive:   #C84040;
-  --color-success:       #2A8A5A;
-  --color-info:          #2A5A8A;
-  --color-warning:       #C49428;
+  /* ── États ────────────────────────────────────────────────────────── */
+  --color-destructive:   #A83030;
+  --color-success:       #27574A;
+  --color-info:          #1E3A58;
+  --color-warning:       #C8A96A;
 
-  /* Status colis */
-  --color-status-created:    #52604E;
-  --color-status-accepted:   #2A5A8A;
-  --color-status-picked-up:  #C49428;
-  --color-status-in-transit: #C49428;
-  --color-status-delivered:  #2A8A5A;
-  --color-status-dispute:    #C84040;
+  /* ── Status colis ─────────────────────────────────────────────────── */
+  --color-status-created:    #635C52;
+  --color-status-accepted:   #1E3A58;
+  --color-status-picked-up:  #9A7A40;
+  --color-status-in-transit: #C8A96A;
+  --color-status-delivered:  #27574A;
+  --color-status-dispute:    #8B2020;
 
-  /* ── Typographie ───────────────────────────────────────────────────── */
-
-  /* Cormorant Garamond — display serif élégant, éditorial premium */
+  /* ── Typographie ──────────────────────────────────────────────────── */
   --font-display: var(--font-cormorant);
-  /* DM Sans — UI propre et lisible */
-  --font-sans:    var(--font-dm);
+  --font-sans:    var(--font-jakarta);
 
-  /* ── Radius — hiérarchie de formes ────────────────────────────────── */
-  --radius-xs:   3px;
-  --radius-sm:   6px;
-  --radius-md:   10px;
-  --radius-lg:   14px;
-  --radius-xl:   20px;
-  --radius-2xl:  28px;
+  /* ── Radius ───────────────────────────────────────────────────────── */
+  --radius-xs:   4px;
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
   --radius-full: 9999px;
 
-  /* ── Shadows — teintées vert-noir ─────────────────────────────────── */
-  --shadow-xs:    0 1px 2px oklch(5% 0.04 145 / 50%);
-  --shadow-sm:    0 2px 6px oklch(5% 0.04 145 / 60%);
-  --shadow-md:    0 6px 20px oklch(5% 0.04 145 / 70%);
-  --shadow-lg:    0 12px 40px oklch(5% 0.04 145 / 80%);
-  --shadow-xl:    0 24px 60px oklch(5% 0.04 145 / 85%);
-  --shadow-gold:  0 4px 24px oklch(65% 0.12 80 / 20%);
-  --shadow-gold-lg: 0 8px 48px oklch(65% 0.12 80 / 30%);
+  /* ── Shadows — chaudes ────────────────────────────────────────────── */
+  --shadow-xs:      0 1px 3px rgba(8, 8, 6, 0.60);
+  --shadow-sm:      0 2px 8px rgba(8, 8, 6, 0.70);
+  --shadow-md:      0 8px 24px rgba(8, 8, 6, 0.75);
+  --shadow-lg:      0 16px 48px rgba(8, 8, 6, 0.80);
+  --shadow-xl:      0 32px 80px rgba(8, 8, 6, 0.85);
+  --shadow-gold:    0 4px 32px rgba(200, 169, 106, 0.18);
+  --shadow-gold-lg: 0 8px 64px rgba(200, 169, 106, 0.28);
 
-  /* ── Motion ────────────────────────────────────────────────────────── */
+  /* ── Motion ───────────────────────────────────────────────────────── */
   --duration-fast:   120ms;
   --duration-base:   200ms;
-  --duration-slow:   380ms;
+  --duration-slow:   400ms;
   --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out:     cubic-bezier(0.45, 0, 0.55, 1);
   --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ── Base ─────────────────────────────────────────────────────────────── */
+/* ── Reset ────────────────────────────────────────────────────────────── */
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -113,8 +112,8 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-display), Georgia, serif;
-  font-weight: 600;
-  line-height: 1.15;
+  font-weight: 400;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: var(--color-text);
 }
@@ -125,6 +124,10 @@ h4, h5, h6 {
   line-height: 1.3;
   letter-spacing: -0.01em;
   color: var(--color-text);
+}
+
+p {
+  line-height: 1.65;
 }
 
 /* ── Focus ────────────────────────────────────────────────────────────── */
@@ -144,7 +147,7 @@ h4, h5, h6 {
 /* ── Selection ────────────────────────────────────────────────────────── */
 
 ::selection {
-  background: oklch(65% 0.12 80 / 25%);
+  background: rgba(200, 169, 106, 0.25);
   color: var(--color-text);
 }
 
@@ -184,21 +187,33 @@ h4, h5, h6 {
   to { transform: rotate(360deg); }
 }
 
-@keyframes pulse-gold {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 oklch(65% 0.12 80 / 0%); }
-  50%       { opacity: 0.8; box-shadow: 0 0 0 6px oklch(65% 0.12 80 / 0%); }
+/* ── Containers ───────────────────────────────────────────────────────── */
+
+/* Nouveau container landing — 1200px centré */
+.cx {
+  width: 100%;
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-6px); }
+@media (min-width: 640px) {
+  .cx {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
-/* ── Container système ────────────────────────────────────────────────── */
-/*
-   Classe .wrap : CSS pur, contourne les bugs de max-w-* dans Tailwind v4.
-   max-width: 80rem = 1280px, centré avec margin-inline: auto.
-*/
+@media (min-width: 1024px) {
+  .cx {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+/* Compatibilité ascendante pour les app screens */
 .wrap {
   width: 100%;
   max-width: 80rem;
@@ -215,7 +230,48 @@ h4, h5, h6 {
   }
 }
 
-/* ── Utilities ────────────────────────────────────────────────────────── */
+/* ── Glass ────────────────────────────────────────────────────────────── */
+
+.glass-nav {
+  backdrop-filter: blur(20px) saturate(1.4);
+  background-color: rgba(8, 8, 6, 0.72);
+}
+
+.glass-card {
+  backdrop-filter: blur(12px) saturate(1.2);
+  background-color: rgba(14, 12, 10, 0.65);
+}
+
+.glass-modal {
+  backdrop-filter: blur(28px) saturate(1.5);
+  background-color: rgba(8, 8, 6, 0.88);
+}
+
+.glass-bottom-bar {
+  backdrop-filter: blur(24px) saturate(1.4);
+  background-color: rgba(8, 8, 6, 0.80);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .glass-nav,
+  .glass-card,
+  .glass-modal,
+  .glass-bottom-bar {
+    background-color: var(--color-surface);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass-nav,
+  .glass-card,
+  .glass-modal,
+  .glass-bottom-bar {
+    backdrop-filter: none;
+    background-color: var(--color-surface);
+  }
+}
+
+/* ── Utilities Tailwind ───────────────────────────────────────────────── */
 
 @utility animate-fade-in {
   animation: fade-in var(--duration-slow) var(--ease-out) both;
@@ -248,10 +304,6 @@ h4, h5, h6 {
   animation: shimmer 1.8s infinite;
 }
 
-@utility animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
 @utility text-balance {
   text-wrap: balance;
 }
@@ -272,35 +324,23 @@ h4, h5, h6 {
   padding-top: env(safe-area-inset-top);
 }
 
-/* ── Patterns gabonais ────────────────────────────────────────────────── */
+/* ── Motif gabonais Fang réinterprété ─────────────────────────────────── */
 
-/* Texture grain fine — subtile */
-.grain::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  border-radius: inherit;
-  z-index: 1;
-}
-
-/* Motif géométrique inspiré de l'art Fang (chevrons) — overlay très subtil */
 .pattern-fang::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.018;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L10 0 L20 20 L10 40 Z' fill='%23C49428'/%3E%3Cpath d='M20 20 L30 0 L40 20 L30 40 Z' fill='%23C49428'/%3E%3C/svg%3E");
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 L10 0 L20 20 L10 40 Z' fill='%23C8A96A'/%3E%3Cpath d='M20 20 L30 0 L40 20 L30 40 Z' fill='%23C8A96A'/%3E%3C/svg%3E");
   background-size: 40px 40px;
   pointer-events: none;
   border-radius: inherit;
 }
 
-/* ── Input/Select base ────────────────────────────────────────────────── */
+/* ── Input date ───────────────────────────────────────────────────────── */
 
 input[type='date']::-webkit-calendar-picker-indicator {
-  filter: invert(0.5) sepia(0.3) saturate(0.5) hue-rotate(60deg);
+  filter: invert(0.5) sepia(0.3) saturate(0.5) hue-rotate(30deg);
   opacity: 0.6;
   cursor: pointer;
 }
@@ -309,7 +349,7 @@ input[type='date']::-webkit-calendar-picker-indicator:hover {
   opacity: 1;
 }
 
-/* ── Reduced motion ────────────────────────────────────────────────────── */
+/* ── Reduced motion ───────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
