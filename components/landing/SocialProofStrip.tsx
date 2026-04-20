@@ -21,10 +21,9 @@ export function SocialProofStrip() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-60px' }}
-        className="cx"
+        className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
-          {STATS.map(({ value, label }, i) => (
+        {STATS.map(({ value, label }, i) => (
             <motion.div
               key={i}
               variants={revealItem}
@@ -41,7 +40,6 @@ export function SocialProofStrip() {
               </span>
             </motion.div>
           ))}
-        </div>
       </motion.div>
     </section>
   )

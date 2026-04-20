@@ -49,7 +49,7 @@ export function Coverage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border rounded-[var(--radius-xl)] overflow-hidden border border-border"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border rounded-[var(--radius-lg)] overflow-hidden border border-border"
         >
 
           {/* Gabon */}
