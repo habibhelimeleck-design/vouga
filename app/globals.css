@@ -194,6 +194,27 @@ h4, h5, h6 {
   50%       { transform: translateY(-6px); }
 }
 
+/* ── Container système ────────────────────────────────────────────────── */
+/*
+   Classe .wrap : CSS pur, contourne les bugs de max-w-* dans Tailwind v4.
+   max-width: 80rem = 1280px, centré avec margin-inline: auto.
+*/
+.wrap {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .wrap {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
 /* ── Utilities ────────────────────────────────────────────────────────── */
 
 @utility animate-fade-in {

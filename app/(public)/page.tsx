@@ -41,8 +41,7 @@ export default function HomePage() {
         </div>
 
         {/* Contenu — dans le flux normal, collé en bas via justify-end */}
-        <div className="relative z-10 pb-14 sm:pb-20">
-          <div className="mx-auto max-w-7xl px-6 sm:px-10">
+        <div className="wrap relative z-10 pb-14 sm:pb-20">
 
             {/* Ligne horizontale */}
             <motion.div
@@ -132,7 +131,6 @@ export default function HomePage() {
               </motion.div>
 
             </div>
-          </div>
         </div>
       </section>
 
@@ -377,8 +375,7 @@ export default function HomePage() {
 
       {/* ── FOOTER ───────────────────────────────────────────────────── */}
       <footer className="border-t border-border py-8">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10
-                        flex flex-col sm:flex-row items-center justify-between gap-5">
+        <div className="wrap flex flex-col sm:flex-row items-center justify-between gap-5">
           <VouGaLogo />
           <p className="text-xs text-subtle">© 2025 VOU GA · Gabon · Plateforme 100% gratuite</p>
           <div className="flex items-center gap-5 text-xs text-subtle">
