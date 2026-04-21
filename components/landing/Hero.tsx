@@ -94,7 +94,7 @@ export function Hero() {
               <ArrowRight className="size-4" strokeWidth={2.5} />
             </Link>
           </Button>
-          <Button asChild size="lg" variant="secondary">
+          <Button asChild size="lg" variant="outline">
             <Link href="/trajets">Voir les trajets</Link>
           </Button>
         </motion.div>

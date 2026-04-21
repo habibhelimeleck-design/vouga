@@ -29,51 +29,50 @@ const TRUST_POINTS = [
 
 export function TrustSection() {
   return (
-    <section className="py-20 sm:py-28 lg:py-36 border-b border-border">
+    <section className="py-24 sm:py-32 lg:py-40 bg-background border-b border-border">
       <div className="cx">
 
-        {/* En-tête */}
         <motion.div
           variants={reveal}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="mb-14"
+          className="mb-16 sm:mb-20"
         >
-          <p className="text-[11px] uppercase tracking-[0.14em] text-subtle font-medium mb-4">
+          <p className="text-[11px] uppercase tracking-[0.13em] text-subtle font-medium mb-5">
             Sécurité &amp; confiance
           </p>
           <h2
             className="font-display font-light text-text max-w-xl text-balance"
-            style={{ fontSize: 'clamp(1.875rem, 4.5vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.03em' }}
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', lineHeight: 1.06, letterSpacing: '-0.035em' }}
           >
             La confiance n'est pas un bonus.<br />
             <span className="italic">C'est l'infrastructure.</span>
           </h2>
         </motion.div>
 
-        {/* Cards */}
         <motion.div
           variants={revealContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
         >
           {TRUST_POINTS.map((point, i) => (
             <motion.div
               key={i}
               variants={revealItem}
-              className="glass-card border border-[rgba(240,234,224,0.09)] rounded-[var(--radius-xl)] p-6 flex flex-col gap-5"
+              className="bg-surface-2 border border-border rounded-[var(--radius-2xl)] p-7 flex flex-col gap-6"
             >
-              {/* Icône */}
-              <div className="size-10 rounded-[var(--radius-md)] bg-accent/10 border border-accent/15 flex items-center justify-center shrink-0">
-                <point.icon className="size-4.5 text-accent" strokeWidth={1.75} />
+              <div className="size-11 rounded-[var(--radius-xl)] bg-accent/8 border border-accent/12 flex items-center justify-center shrink-0">
+                <point.icon className="size-5 text-accent" strokeWidth={1.5} />
               </div>
 
-              {/* Texte */}
               <div>
-                <h3 className="font-sans font-semibold text-text text-[15px] tracking-[-0.01em] mb-2">
+                <h3
+                  className="font-display font-light text-text mb-2.5"
+                  style={{ fontSize: '1.1875rem', lineHeight: 1.3, letterSpacing: '-0.02em' }}
+                >
                   {point.title}
                 </h3>
                 <p className="text-[13px] text-muted leading-relaxed">
